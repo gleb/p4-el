@@ -77,6 +77,12 @@
       (setq p4-running-xemacs t)
     (setq p4-running-emacs t)))
 
+;; Pick up a couple of missing function defs
+(if p4-running-xemacs
+    (eval-when-compile
+      (require 'timer)
+      (require 'dired)))
+
 (defvar p4-emacs-maintainer
   "p4.el maintainers <p4el-bugs@lists.sourceforge.net>"
   "The maintainer(s) of the emacs-p4 integration. Used for bug reports.")
