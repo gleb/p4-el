@@ -361,6 +361,7 @@ arguments to p4 commands."
 (if p4-require-vc-p
     (require 'vc))
 
+;;;###autoload
 (defvar p4-prev-toggle-fkn
   (if (where-is-internal 'vc-toggle-read-only)
       'vc-toggle-read-only
