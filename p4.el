@@ -3457,7 +3457,6 @@ that."
 
 (defun p4-empty-diff-p ()
   "Return t if there exists a file opened for edit with an empty diff"
-  (interactive)
   (let ((buffer (get-buffer-create "p4-edp-buf"))
 	opened empty-diff)
     (p4-exec-p4 buffer (list "opened") t)
