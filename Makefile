@@ -29,6 +29,7 @@ all: $(WEBTGZ) $(P4TGZ)
 $(P4TGZ): $(P4EL)
 	@echo Creating p4.el distribution $@
 	@tar zcfp $@ $^
+	@echo ftp $@ to upload.sourceforge.net:/incoming
 
 $(WEBTGZ): $(WEB)
 	@echo Creating Web distribution $@
