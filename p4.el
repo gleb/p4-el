@@ -1458,7 +1458,11 @@ type \\[p4-print-with-rev-history]"
 		    (p4-create-active-link (match-beginning 4)
 					   (match-end 4)
 					   (list (cons 'user
-						       (match-string 4)))))))
+						       (match-string 4))))
+		    (let ((start (+ (match-beginning 4) 7))
+			  (end (match-end 4)))
+		      (if (> end start)
+			  (delete-region start end))))))
 	    (setq old-rev rev)
 	    (forward-line))))
 
