@@ -1415,7 +1415,11 @@ the corresponding client file."
 	  (if link-depot-name
 	      (p4-set-extent-properties start end
 					(list (cons 'block-depot-name
-						    link-depot-name))))))
+						    link-depot-name))))
+	  (p4-find-change-numbers buffer-name start
+				  (save-excursion
+				    (goto-char start)
+				    (line-end-position)))))
       (setq buffer-read-only t))))
 
 (defconst p4-blame-change-regex
