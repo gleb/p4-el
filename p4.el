@@ -1303,6 +1303,9 @@ the corresponding client file."
       (setq buffer-file-name nil)
       (font-lock-fontify-buffer)
       (fundamental-mode)
+      (if (and p4-running-emacs
+	       (boundp 'hilit-auto-rehighlight))
+	  (setq hilit-auto-rehighlight nil))
       (goto-char (point-min))
       (p4-insert-no-properties first-line))))
 
