@@ -478,7 +478,8 @@ Does auto re-highlight management (whatever that is)."
 		    args)))
 	(goto-char (point-min))
 	(if (and (not no-login)
-		 (looking-at "Perforce password (P4PASSWD) invalid or unset"))
+		 (or (looking-at "Perforce password (P4PASSWD) invalid or unset")
+		     (looking-at "Your session has expired, please login again.")))
 	    (progn
 	      (setq current-prefix-arg nil)
 	      (p4-login)
