@@ -1420,7 +1420,7 @@ type \\[p4-blame]"
 	  (error "File pattern maps to more than one file.")))
 
     ;; get the file change history:
-    (p4-exec-p4 buffer (list "filelog" "-i" file-name) t)
+    (p4-exec-p4 buffer (list "filelog" "-i" file-spec) t)
     (setq fullname (p4-read-depot-output buffer)
 	  cur-file  fullname
 	  head-name fullname)
