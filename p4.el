@@ -1097,6 +1097,8 @@ name and a client name."
 (defun p4-map-depot-files-int (file-list)
   (let* ((current-client (p4-current-client))
 	 (client-root (p4-get-client-root current-client))
+	 (re-current-client (regexp-quote current-client))
+	 (re-client-root (regexp-quote client-root))
 	 files pmin)
     (save-excursion
       (get-buffer-create p4-output-buffer-name)
@@ -1109,7 +1111,7 @@ name and a client name."
       (goto-char pmin)
       (if (< (p4-get-server-version) 98)
 	  (while (re-search-forward
-		  (concat "^\\([^\n]+\\) //" current-client
+		  (concat "^\\([^\n]+\\) //" re-current-client
 			  "\\(.*\\)$") nil t)
 	    (setq files (cons
 			 (cons
@@ -1117,8 +1119,8 @@ name and a client name."
 			  (concat client-root (match-string 2)))
 			 files)))
 	(while (re-search-forward
-		(concat "^\\([^\n]+\\) //" current-client
-			"\\([^\n]+\\) \\(" client-root ".*\\)$") nil t)
+		(concat "^\\([^\n]+\\) //" re-current-client
+			"\\([^\n]+\\) \\(" re-client-root ".*\\)$") nil t)
 	  (setq files (cons
 		       (cons
 			(match-string 1) (match-string 3)) files))))
