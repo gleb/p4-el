@@ -2717,7 +2717,7 @@ list."
 ;; A function to check if the file being opened is version controlled by p4.
 (defun p4-is-vc (&optional file-mode-cache)
   "If a file is controlled by P4 then return version else return nil."
-  (let ((filename (p4-buffer-file-name)) max version done)
+  (let ((filename (p4-buffer-file-name)) version done)
     (let ((el (assoc filename file-mode-cache)))
       (setq done el)
       (setq version (cdr el)))
