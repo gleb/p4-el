@@ -19,7 +19,7 @@
 
 WEB=	TODO index.php p4.el.html thanks.html
 P4EL=	p4.el ChangeLog
-REL=	10.2
+REL=	$(shell grep 'defvar.*p4-emacs-version' p4.el | cut -d\" -f2)
 
 WEBTGZ=	web.tgz
 P4TGZ=	p4.el-$(REL).tgz
