@@ -1324,7 +1324,7 @@ type \\[p4-print-with-rev-history]"
 	(let ((rev-1 (caar tmp-alst))
 	      (rev-2 (car (cadr tmp-alst)))
 	      ins-string)
-	  (setq ins-string (concat rev-2 "\n"))
+	  (setq ins-string (concat (int-to-string rev-2) "\n"))
 	  (p4-exec-p4 buffer (list "diff2"
 				   (concat fullname "#"
 					   (int-to-string rev-1))
