@@ -85,7 +85,7 @@ Explorer Screen shots (<?php echo $p4explorer_ss_size; ?>KB)</a>
 
 </ul>
 <p>
-<hr><i>Maintainer: <a href="mailto:rv@no.spam.dsmit.com">Rajesh Vaidheeswarran (remove the no.spam from my address to email me)</a></i>
+<hr><i>Maintainer: <a href="mailto:rv+p4el at no.spam.dsmit.com">Rajesh Vaidheeswarran (remove the no.spam from my address to email me)</a></i>
 <p>
 <i><a href="http://sourceforge.net/projects/p4el/">P4.el project page on Sourceforge.net</a></i>
 <p>
