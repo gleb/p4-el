@@ -2100,9 +2100,11 @@ arguments to P4-OUT-COMMAND."
 	(if p4-out-command
 	    (setq p4-current-command p4-out-command))
 	(setq p4-current-args p4-out-args)
+	(setq buffer-offer-save t)
 
 	(define-key p4-minor-map "\C-c\C-c" 'p4-async-call-process)
 	(run-hooks 'p4-async-command-hook)
+	(set-buffer-modified-p nil)
 	(message "C-c C-c to finish editing and exit buffer."))
     (error "%s %s -o failed to complete successfully."
 	   (p4-check-p4-executable) p4-current-command)))
