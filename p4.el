@@ -1476,7 +1476,7 @@ type \\[p4-blame]"
 	  (ch-buffer (get-buffer-create "p4-ch-buf"))
 	  (tmp-alst (copy-alist ch-alist)))
       (p4-exec-p4 ch-buffer
-		  (list "print" "-q" (concat fullname "#" base-rev)) t)
+		  (list "print" "-q" (concat cur-file "#" base-rev)) t)
       (save-excursion
 	(set-buffer ch-buffer)
 	(goto-char (point-min))
