@@ -1049,7 +1049,7 @@ When visiting a depot file, type \\[p4-diff-head].\n"
     (goto-char start)
     (while (re-search-forward "\\(changes?\\|submit\\|p4\\)[:#]?[ \t\n]+" end t)
       (while (looking-at
-	      (concat "\\(#\\|number\\|no\\.\\|\\)[ \t\n]*"
+	      (concat "\\([#@]\\|number\\|no\\.\\|\\)[ \t\n]*"
 		      "\\([0-9]+\\)[-, \t\n]*"
 		      "\\(and/or\\|and\\|&\\|or\\|\\)[ \t\n]*"))
 	(let ((ch-start (match-beginning 2))
