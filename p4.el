@@ -841,6 +841,25 @@ When visiting a depot file, type \\[p4-diff2] and enter the versions.\n"
 					    diff-version2)))
     (p4-activate-diff-buffer "*P4 diff2*")))
 
+(def-p4-cmd p4-diff-head ()
+  "diff-head" "Display diff of file against the head revision in depot.
+
+When visiting a depot file, type \\[p4-diff-head].\n"
+
+  (interactive)
+  (let (head-revision
+	(diff-options (p4-make-list-from-string p4-default-diff-options)))
+    (if current-prefix-arg
+	(setq diff-options (p4-make-list-from-string
+			    (p4-read-arg-string "Optional Args: "
+						p4-default-diff-options))))
+    (setq head-revision (p4-get-file-rev (p4-buffer-file-name-2) "head"))
+
+    (p4-noinput-buffer-action "diff" nil t
+			      (append diff-options
+				      (list head-revision)))
+    (p4-activate-diff-buffer "*P4 diff vs. head*")))
+
 
 ;; p4-ediff for all those who diff using ediff
 
