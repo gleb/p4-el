@@ -1382,6 +1382,7 @@ the corresponding client file."
       (if (and p4-running-emacs
 	       (boundp 'hilit-auto-rehighlight))
 	  (setq hilit-auto-rehighlight nil))
+      (setq buffer-read-only nil)
       (goto-char (point-min))
       (p4-insert-no-properties first-line))))
 
