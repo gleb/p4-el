@@ -1452,7 +1452,8 @@ type \\[p4-blame]"
 			 (string= head-name cur-file))) nil)
 	       
 	       ;; file has been deleted, can't assign blame:
-	       ((string= op "delete") (goto-char (point-max)))
+	       ((string= op "delete") 
+		(if (not headseen) (goto-char (point-max))))
 
 	       ;; OK, we actually want to look at this one:
 	       (t
