@@ -1301,7 +1301,9 @@ the corresponding client file."
       (setq buffer-file-name file-name)
       (set-auto-mode)
       (setq buffer-file-name nil)
-      (font-lock-fontify-buffer)
+      (condition-case nil
+	  (font-lock-fontify-buffer)
+	(error nil))
       (fundamental-mode)
       (if (and p4-running-emacs
 	       (boundp 'hilit-auto-rehighlight))
