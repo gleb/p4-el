@@ -2183,7 +2183,7 @@ buffer after editing is done using the minor mode key mapped to `C-c C-c'."
 		      (p4-read-arg-string "p4 client: " nil "client"))))
       (if (p4-cmd-line-flags args)
 	  (p4-noinput-buffer-action "client" nil t args)
-	(p4-async-process-command "client" "Description:\n\t"
+	(p4-async-process-command "client" "\\(Description\\|View\\):\n\t"
 				  client-buf-name nil args)))))
 
 (def-p4-cmd p4-clients ()
