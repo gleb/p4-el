@@ -14,6 +14,8 @@
 #
 #    If you have any problems to report, or suggestions, please send them
 #    to p4el-bugs@lists.sourceforge.net
+#
+#	$Id$
 
 WEB=	TODO index.php p4.el.html thanks.html
 P4EL=	p4.el ChangeLog
