@@ -40,7 +40,8 @@ this package would not be what it is today.
 <p>
 <B>The files are now released under the <a href="http://sourceforge.net/project/showfiles.php?group_id=58201">Sourceforge Release System</a></B>
 <p>
-A helpful guide to p4.el is available <a href="p4.el.html">here.</a>
+A helpful guide to p4.el is available <a href="p4.el.html">here</a>, thanks
+to our users.
 <p>
 <b>Other Interesting Links</b>
 <ul>
