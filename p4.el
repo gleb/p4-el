@@ -1898,12 +1898,15 @@ character events"
 	  (p4-buffer-set-face-property "^\\(!.*\n\\)+" 'p4-diff-change-face)))
 
     (goto-char (point-min))
-    (while (re-search-forward "^\\(==== //\\).*\n\\(\\(\n\\|[^=\n].*\n\\)*\\)"
+    (while (re-search-forward "^\\(==== //\\).*\n"
 			      nil t)
-      (let ((link-client-name (get-char-property (match-end 1) 'link-client-name))
-	    (link-depot-name (get-char-property (match-end 1) 'link-depot-name))
-	    (start (match-beginning 2))
-	    (end (match-end 2)))
+      (let* ((link-client-name (get-char-property (match-end 1) 'link-client-name))
+	     (link-depot-name (get-char-property (match-end 1) 'link-depot-name))
+	     (start (match-beginning 0))
+	     (end (save-excursion
+		    (if (re-search-forward "^==== " nil t)
+			(match-beginning 0)
+		      (point-max)))))
 	(if link-client-name
 	    (p4-set-extent-properties start end
 				      (list (cons 'block-client-name
